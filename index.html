@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Proyecto de Comida Saludable</title>
+    <!-- Enlace a las hojas de estilo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Cabecera del formulario -->
+        <div class="form-header">
+            <h1>Formulario de Proyecto de Comida Saludable</h1>
+            <!-- Botón para cambiar tema ubicado en el header -->
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="toggle-text">Modo Oscuro</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Formulario principal -->
+        <form id="foodOrderForm">
+            <!-- Sección de datos personales -->
+            <section class="form-section">
+                <h2>Datos Personales</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Ej: Carlitos html" required>
+                        <div class="error-message" id="nombre-error">Por favor, ingrese su nombre completo.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required>
+                        <div class="error-message" id="email-error">Por favor, ingrese un correo electrónico válido.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" class="form-control" placeholder="Ej: 123456789" required>
+                        <div class="error-message" id="telefono-error">Por favor, ingrese un número de teléfono válido.</div>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <!-- Sección de hábitos -->
+            <section class="form-section">
+                <h2>Hábitos de Pedido</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="pedidosDiarios">a. ¿Cuántos pedidos de comida realiza al día? *</label>
+                        <select id="pedidosDiarios" class="form-control" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="0">Ninguno</option>
+                            <option value="1">1 pedido</option>
+                            <option value="2">2 pedidos</option>
+                            <option value="3">3 pedidos</option>
+                            <option value="4+">4 o más pedidos</option>
+                        </select>
+                        <div class="error-message" id="pedidosDiarios-error">Por favor, seleccione una opción.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horarioAlmuerzo">b. ¿Cuáles son sus horarios de almuerzo? *</label>
+                        <div class="radio-group fancy-radio">
+                            <label class="radio-option">
+                                <input type="radio" name="horarioAlmuerzo" value="11:00-12:00" required>
+                                <span class="radio-custom"></span>
+                                <span class="label-text">11:00 - 12:00</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="horarioAlmuerzo" value="12:00-13:00">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">12:00 - 13:00</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="horarioAlmuerzo" value="13:00-14:00">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">13:00 - 14:00</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="horarioAlmuerzo" value="14:00-15:00">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">14:00 - 15:00</span>
+                            </label>
+                        </div>
+                        <div class="error-message" id="horarioAlmuerzo-error">Por favor, seleccione un horario.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="metodoDevolucion">c. ¿Qué método de devolución le gustaría? *</label>
+                        <div class="radio-group fancy-radio">
+                            <label class="radio-option">
+                                <input type="radio" name="metodoDevolucion" value="efectivo" required>
+                                <span class="radio-custom"></span>
+                                <span class="label-text">Efectivo</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="metodoDevolucion" value="tarjeta">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">Tarjeta de crédito/débito</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="metodoDevolucion" value="transferencia">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">Transferencia bancaria</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="metodoDevolucion" value="app">
+                                <span class="radio-custom"></span>
+                                <span class="label-text">Aplicación móvil</span>
+                            </label>
+                        </div>
+                        <div class="error-message" id="metodoDevolucion-error">Por favor, seleccione un método.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="anticipacion">d. ¿Con cuánto tiempo de anticipación pide la comida? *</label>
+                        <select id="anticipacion" class="form-control" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="inmediato">Inmediatamente (0-15 min)</option>
+                            <option value="corto">Poco tiempo (15-30 min)</option>
+                            <option value="medio">Tiempo medio (30-60 min)</option>
+                            <option value="anticipado">Con anticipación (1-2 horas)</option>
+                            <option value="planificado">Planificado (más de 2 horas)</option>
+                        </select>
+                        <div class="error-message" id="anticipacion-error">Por favor, seleccione una opción.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de información adicional -->
+            <section class="form-section">
+                <h2>Información Adicional</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="tipoComida">Tipo de comida preferida</label>
+                        <div class="checkbox-group fancy-checkbox">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tipoComida" value="italiana">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">Italiana</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tipoComida" value="mexicana">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">Mexicana</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tipoComida" value="china">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">China</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tipoComida" value="japonesa">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">Japonesa</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tipoComida" value="otra">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">Otra</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="otraComidaContainer" style="display: none;">
+                        <label for="otraComida">Especifique otro tipo de comida</label>
+                        <input type="text" id="otraComida" class="form-control" placeholder="Ej: Peruana, India...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="restricciones">Restricciones alimentarias</label>
+                        <textarea id="restricciones" class="form-control" placeholder="Ej: Alergia a mariscos, vegetariano..." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fotoComida">Suba una foto de su comida favorita (opcional)</label>
+                        <div class="file-upload-container">
+                            <label for="fotoComida" class="file-upload-label">
+                                <span class="upload-icon">📷</span>
+                                <span class="upload-text">Seleccionar Archivo</span>
+                            </label>
+                            <input type="file" id="fotoComida" class="file-upload" accept="image/*">
+                            <span class="file-name" id="fileName">Ningún archivo seleccionado</span>
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <img id="previewImg" src="" alt="Vista previa">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <!-- Sección de respuestas -->
+            <section class="form-section response-section">
+                <h3>Respuestas:</h3>
+                <div class="responses-container">
+                    <p id="respuestaPedidos" class="response-item"></p>
+                    <p id="respuestaHorario" class="response-item"></p>
+                    <p id="respuestaDevolucion" class="response-item"></p>
+                    <p id="respuestaAnticipacion" class="response-item"></p>
+                </div>
+            </section>
+            
+            <!-- Botón de envío -->
+            <button type="submit" class="submit-btn">
+                <span class="btn-icon">📨</span>
+                <span class="btn-text">Enviar Respuestas</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
